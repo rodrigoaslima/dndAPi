@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.services.magicSchools import MagicSchoolsService
+from app.services.magicSchools_service import MagicSchoolsService
 from app.db.mongo import db
 
 service = MagicSchoolsService(db)

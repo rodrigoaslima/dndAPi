@@ -1,7 +1,8 @@
 from fastapi import FastAPI
 from app.routes import (spells, classes, abilityPoints,alignments, backgrounds, conditions,
                         damageTypes, equipment,equipmentTypes,feats, features, languages,
-                        magicItems, magicSchools)
+                        magicItems, magicSchools, monsters, proficiencies, races, ruleSections,
+                        rules, skills, subclasses, subraces, traits, weaponProperties)
 
 app = FastAPI(title="D&D 5e API Wrapper")
 
@@ -32,6 +33,26 @@ app.include_router(languages.router, prefix="/languages", tags=["languages"])
 app.include_router(magicItems.router, prefix="/magicItems", tags=["magicItems"])
 
 app.include_router(magicSchools.router, prefix="/magicSchools", tags=["magicSchools"])
+
+app.include_router(monsters.router, prefix="/monsters", tags=["monsters"])
+
+app.include_router(proficiencies.router, prefix="/proficiencies", tags=["proficiencies"])
+
+app.include_router(races.router, prefix="/races", tags=["races"])
+
+app.include_router(ruleSections.router, prefix="/ruleSections", tags=["ruleSections"])
+
+app.include_router(rules.router, prefix="/rules", tags=["rules"])
+
+app.include_router(skills.router, prefix="/skills", tags=["skills"])
+
+app.include_router(subclasses.router, prefix="/subclasses", tags=["subclasses"])
+
+app.include_router(subraces.router, prefix="/subraces", tags=["subraces"])
+
+app.include_router(traits.router, prefix="/traits", tags=["traits"])
+
+app.include_router(weaponProperties.router, prefix="/weaponProperties", tags=["weaponProperties"])
 
 @app.get("/")
 async def root():
